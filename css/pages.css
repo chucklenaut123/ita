@@ -1,0 +1,114 @@
+/**
+ * 各页面特有样式微调
+ */
+
+/* ---------- 首页 Hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: var(--space-xl) 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.25;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(circle at center, rgba(11, 17, 33, 0.6), rgba(11, 17, 33, 0.95));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 var(--space-md);
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.02em;
+}
+
+.hero h1 span {
+  display: block;
+  font-size: 0.35em;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* ---------- 成员页 ---------- */
+.members-section,
+.projects-section,
+.docs-section {
+  padding-bottom: var(--space-xxl);
+}
+
+/* ---------- 项目详情页隐藏列表 ---------- */
+#project-detail {
+  display: none;
+  padding: var(--space-xl) 0;
+}
+
+/* ---------- 文档页分区标题 ---------- */
+.docs-section h2 {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+}
+
+.docs-section h2:first-of-type {
+  margin-top: 0;
+}
+
+/* ---------- 新闻详情 ---------- */
+.news-date {
+  display: inline-block;
+  margin-left: var(--space-sm);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- about-block 动画支持 ---------- */
+.about-block {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--duration-normal) var(--ease-out), transform var(--duration-normal) var(--ease-out);
+}
+
+.about-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
