@@ -23,8 +23,11 @@ function renderNavbar(activeId) {
     <header class="navbar">
       <div class="container navbar-inner">
         <a href="index.html" class="logo">
-          <span class="logo-zh">${SITE_CONFIG.siteName.zh}</span>
-          <span class="logo-en">${SITE_CONFIG.siteName.en}</span>
+          <img src="assets/images/gear-icon.png" alt="" class="logo-icon" />
+          <div class="logo-text">
+            <span class="logo-zh">${SITE_CONFIG.siteName.zh}</span>
+            <span class="logo-en">${SITE_CONFIG.siteName.en}</span>
+          </div>
         </a>
         <button class="nav-toggle" aria-label="切换导航" aria-expanded="false">
           <span></span>

@@ -51,14 +51,60 @@ function initMobileMenu() {
 }
 
 /**
- * 首页逻辑：轮播 + 入口卡片
+ * 首页逻辑：打字机 + 轮播 + 入口卡片
  */
 function initHomePage() {
+  initTypewriter();
+
   const carouselContainer = document.getElementById('news-carousel');
   if (carouselContainer) {
     carouselContainer.innerHTML = renderNewsCarousel(NEWS_DATA);
     initCarousel();
   }
+}
+
+/**
+ * 打字机效果
+ */
+function initTypewriter() {
+  const description = document.querySelector('.typewriter-desc');
+  if (!description) return;
+
+  const speed = 24;
+
+  async function typeElement(el, delay = 0) {
+    const text = el.dataset.typeText || '';
+    el.textContent = '';
+    await new Promise((r) => setTimeout(r, delay));
+    el.classList.add('typing');
+
+    for (let i = 0; i < text.length; i++) {
+      el.textContent += text[i];
+      await new Promise((r) => setTimeout(r, speed));
+    }
+
+    el.classList.remove('typing');
+    el.classList.add('typed');
+  }
+
+  async function run() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      description.textContent = description.dataset.typeText || '';
+      document.querySelector('.hero-actions')?.classList.add('visible');
+      return;
+    }
+
+    // 品牌信息立即呈现，只让介绍语承担轻量的动态效果。
+    await typeElement(description, 280);
+
+    // 说明完成后再显示按钮，保持行动顺序清晰。
+    const actions = document.querySelector('.hero-actions');
+    if (actions) {
+      actions.classList.add('visible');
+    }
+  }
+
+  run();
 }
 
 /**
