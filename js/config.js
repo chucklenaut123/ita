@@ -42,6 +42,7 @@ const SITE_CONFIG = {
     { label: '核心成员', href: 'members.html', id: 'members' },
     { label: '项目与活动', href: 'projects.html', id: 'projects' },
     { label: '教程与文档', href: 'docs.html', id: 'docs' },
+    { label: 'YLID AI Agent', href: 'ylid-ai.html', id: 'ylid-ai' },
     { label: '关于我们', href: 'about.html', id: 'about' },
   ],
 };

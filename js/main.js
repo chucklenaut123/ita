@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (page === 'projects') initProjectsPage();
   if (page === 'docs') initDocsPage();
   if (page === 'news-detail') initNewsDetailPage();
+  if (page === 'ylid-ai') initYlidAiPage();
 
   initScrollAnimations();
 });
@@ -279,6 +280,64 @@ function initNewsDetailPage() {
       <a href="index.html" class="btn">返回首页</a>
     </article>
   `;
+}
+
+/**
+ * Load the public YLID AI release manifest for the product download page.
+ * The desktop client reads the same file, keeping the displayed version and
+ * the auto-update target in sync.
+ */
+async function initYlidAiPage() {
+  const status = document.getElementById('ylid-release-status');
+  const version = document.getElementById('ylid-version');
+  const date = document.getElementById('ylid-release-date');
+  const notes = document.getElementById('ylid-release-notes');
+  const download = document.getElementById('ylid-download');
+  if (!status || !version || !date || !notes || !download) return;
+
+  function unavailable(message) {
+    status.textContent = message;
+    status.classList.add('is-error');
+    version.textContent = '—';
+    date.textContent = '—';
+    notes.textContent = '发布信息尚未就绪。';
+    download.setAttribute('aria-disabled', 'true');
+    download.removeAttribute('href');
+  }
+
+  try {
+    const response = await fetch('ylid-ai/updates/latest.json', {
+      cache: 'no-store',
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const manifest = await response.json();
+    const platform = manifest?.platforms?.['windows-x86_64'];
+    const updateUrl = platform?.url;
+    if (
+      typeof manifest?.version !== 'string' ||
+      typeof manifest?.notes !== 'string' ||
+      typeof updateUrl !== 'string' ||
+      !updateUrl.startsWith('https://')
+    ) {
+      throw new Error('Invalid release manifest');
+    }
+
+    version.textContent = `v${manifest.version.replace(/^v/, '')}`;
+    notes.textContent = manifest.notes || '本版本暂未提供更新说明。';
+    const publishedAt = manifest.pub_date ? new Date(manifest.pub_date) : null;
+    if (publishedAt && Number.isNaN(publishedAt.getTime())) {
+      throw new Error('Invalid publication date');
+    }
+    date.textContent = publishedAt
+      ? new Intl.DateTimeFormat('zh-CN', { dateStyle: 'long' }).format(publishedAt)
+      : '刚刚发布';
+    download.href = updateUrl;
+    download.removeAttribute('aria-disabled');
+    status.textContent = '稳定版已准备就绪';
+  } catch {
+    unavailable('暂时无法获取最新版本，请稍后重试。');
+  }
 }
 
 /**
