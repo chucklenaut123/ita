@@ -36,6 +36,14 @@ const SITE_CONFIG = {
     bilibili: '',
   },
 
+  // YLID AI 更新源：与客户端 Tauri updater 保持一致，由客户端独立发布。
+  updates: {
+    ylidAi: {
+      primaryManifestUrl: 'https://ylidai-updates.pages.dev/updates/latest.json',
+      backupManifestUrl: '',
+    },
+  },
+
   // 导航配置
   nav: [
     { label: '首页', href: 'index.html', id: 'index' },

@@ -306,12 +306,13 @@ async function initYlidAiPage() {
   }
 
   try {
-    const response = await fetch('ylid-ai/updates/latest.json', {
-      cache: 'no-store',
+    const release = await window.YLID_UPDATES?.fetchReleaseManifest({
+      primaryUrl: SITE_CONFIG?.updates?.ylidAi?.primaryManifestUrl,
+      backupUrl: SITE_CONFIG?.updates?.ylidAi?.backupManifestUrl,
     });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    if (!release) throw new Error('Release manifest loader is unavailable');
 
-    const manifest = await response.json();
+    const { manifest, source } = release;
     const platform = manifest?.platforms?.['windows-x86_64'];
     const updateUrl = platform?.url;
     if (
@@ -326,15 +327,12 @@ async function initYlidAiPage() {
     version.textContent = `v${manifest.version.replace(/^v/, '')}`;
     notes.textContent = manifest.notes || '本版本暂未提供更新说明。';
     const publishedAt = manifest.pub_date ? new Date(manifest.pub_date) : null;
-    if (publishedAt && Number.isNaN(publishedAt.getTime())) {
-      throw new Error('Invalid publication date');
-    }
     date.textContent = publishedAt
       ? new Intl.DateTimeFormat('zh-CN', { dateStyle: 'long' }).format(publishedAt)
       : '刚刚发布';
     download.href = updateUrl;
     download.removeAttribute('aria-disabled');
-    status.textContent = '稳定版已准备就绪';
+    status.textContent = source === 'backup' ? '备用发布源已准备就绪' : '稳定版已准备就绪';
   } catch {
     unavailable('暂时无法获取最新版本，请稍后重试。');
   }
