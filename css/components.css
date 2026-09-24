@@ -553,13 +553,65 @@
 
 .members-list .member-right {
   flex: 1;
+  min-width: 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-md);
 }
 
 .members-list .member-card .card-text {
   font-size: 1rem;
   line-height: 1.7;
+}
+
+.member-contact {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-glow);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-md);
+}
+
+.member-contact-title {
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.member-contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem var(--space-sm);
+}
+
+.member-contact-details dt {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.member-contact-details dd {
+  min-width: 0;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+@media (max-width: 600px) {
+  .members-list .member-card {
+    flex-direction: column;
+    padding: var(--space-md);
+    gap: var(--space-md);
+  }
+
+  .members-list .member-left {
+    width: 100%;
+  }
 }
 
 /* ---------- 项目列表（水平卡片） ---------- */
