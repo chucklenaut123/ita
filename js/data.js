@@ -46,7 +46,7 @@ const MEMBERS_DATA = [
     role: '荣誉社长',
     department: '主席团',
     avatar: 'assets/images/荣誉社长头像.jpg',
-    intro: '社团创建人，第一任社长，现就读于波士顿大学',
+    intro: '社团创建人，第一任社长，YLIDAI项目发起者与Windows版本主要贡献者，现就读于波士顿大学',
     wechat: 'Shabby2237',
   },
   {
