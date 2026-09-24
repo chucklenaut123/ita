@@ -76,6 +76,7 @@ function renderMemberCard(member, index = 0) {
       </div>
       <div class="member-right">
         <p class="card-text">${member.intro}</p>
+        ${member.wechat ? `<p class="card-text">微信号：${member.wechat}</p>` : ''}
       </div>
     </article>
   `;
