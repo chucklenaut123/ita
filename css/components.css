@@ -508,13 +508,39 @@
 }
 
 .members-list .member-card {
+  display: block;
+  padding: 0;
+  text-align: left;
+  scroll-margin-top: 110px;
+}
+
+.member-summary {
   display: flex;
   flex-direction: row;
   align-items: stretch;
   padding: var(--space-lg);
   gap: var(--space-lg);
   text-align: left;
+  cursor: pointer;
+  list-style: none;
 }
+
+.member-summary::-webkit-details-marker { display: none; }
+.member-card[open] { border-color: var(--accent-glow); }
+.member-toggle { display: flex; align-items: center; gap: var(--space-xs); color: var(--accent); font-size: 0.875rem; }
+.member-toggle-icon { margin-left: auto; font-size: 1.4rem; transition: transform var(--duration-fast); }
+.member-card[open] .member-toggle-icon { transform: rotate(45deg); }
+.member-card:not([open]) .when-open, .member-card[open] .when-closed { display: none; }
+.member-expanded { padding: 0 var(--space-lg) var(--space-lg); }
+.member-projects { padding-top: var(--space-md); border-top: 1px solid var(--border); }
+.member-projects h4 { display: flex; align-items: center; gap: var(--space-xs); font-size: 1rem; margin-bottom: var(--space-sm); }
+.member-project-links { display: grid; gap: var(--space-xs); }
+.member-project-links a { display: flex; align-items: center; justify-content: space-between; gap: var(--space-sm); padding: var(--space-sm); background: var(--accent-soft); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--accent); }
+.member-project-meta { flex-shrink: 0; font-size: 0.8rem; color: var(--text-secondary); }
+.member-empty { color: var(--text-secondary); font-size: 0.95rem; }
+.member-expanded .member-contact { margin-top: var(--space-md); }
+.member-summary:focus-visible, .member-project-links a:focus-visible, .project-leader-card:focus-visible, .project-detail-link:focus-visible, .project-title-link:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; border-radius: var(--radius-sm); }
+.member-project-links a:hover, .project-leader-card:hover { border-color: var(--accent-glow); background: var(--bg-hover); }
 
 .members-list .member-left {
   display: flex;
@@ -605,7 +631,7 @@
 }
 
 @media (max-width: 600px) {
-  .members-list .member-card {
+  .member-summary {
     flex-direction: column;
     padding: var(--space-md);
     gap: var(--space-md);
@@ -614,6 +640,8 @@
   .members-list .member-left {
     width: 100%;
   }
+  .member-expanded { padding: 0 var(--space-md) var(--space-md); }
+  .member-project-links a { align-items: flex-start; flex-direction: column; gap: 0.25rem; }
 }
 
 /* ---------- 项目列表（水平卡片） ---------- */
@@ -632,7 +660,7 @@
   padding: var(--space-lg);
   gap: var(--space-lg);
   text-align: left;
-  cursor: pointer;
+  cursor: default;
 }
 
 .project-card .project-left {
@@ -647,7 +675,27 @@
 .project-card .project-right {
   flex: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+.project-title-link:hover, .project-detail-link { color: var(--accent); }
+.project-detail-link { align-self: flex-start; font-size: 0.875rem; }
+.project-detail-link:hover { text-decoration: underline; }
+.project-leader-card { display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--bg-tertiary); transition: border-color var(--duration-fast), background var(--duration-fast); }
+.project-leader-card .leader-avatar { width: 48px; height: 48px; flex-shrink: 0; }
+.leader-info { display: flex; flex-direction: column; min-width: 0; overflow-wrap: anywhere; }
+.leader-label { color: var(--text-secondary); font-size: 0.8rem; }
+.leader-arrow { margin-left: auto; color: var(--accent); }
+.detail-card > .project-leader-card { max-width: 460px; margin-top: var(--space-lg); }
+@media (max-width: 600px) {
+  .project-card { flex-direction: column; padding: var(--space-md); gap: var(--space-md); }
+  .project-card .project-left { width: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .member-toggle-icon, .project-leader-card { transition: none; }
 }
 
 .project-card .card-title {

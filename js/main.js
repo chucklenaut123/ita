@@ -178,6 +178,19 @@ function initMembersPage() {
   if (container) {
     container.innerHTML = MEMBERS_DATA.map((m, i) => renderMemberCard(m, i)).join('');
   }
+  openMemberFromHash();
+  window.addEventListener('hashchange', openMemberFromHash);
+}
+
+function openMemberFromHash() {
+  const hash = window.location.hash;
+  if (!/^#member-\d+$/.test(hash)) return;
+  const card = document.getElementById(hash.slice(1));
+  if (!card || !card.matches('details.member-card')) return;
+  card.open = true;
+  card.classList.add('visible');
+  card.querySelector('summary').focus({ preventScroll: true });
+  card.scrollIntoView({ block: 'start', behavior: 'instant' });
 }
 
 /**
@@ -209,10 +222,7 @@ function initProjectsPage() {
               </div>
             </div>
             <p>${project.detail}</p>
-            <div class="project-leader">
-              <img src="${project.leader.avatar}" alt="${project.leader.name}" class="leader-avatar" />
-              <span>项目负责人：${project.leader.name}</span>
-            </div>
+            ${renderProjectLeader(project)}
           </article>
         </div>
       `;

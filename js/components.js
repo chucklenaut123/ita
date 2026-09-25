@@ -65,8 +65,10 @@ function renderFooter() {
  * @param {object} member 成员数据
  */
 function renderMemberCard(member, index = 0) {
+  const projects = PROJECTS_DATA.filter((project) => project.leaderId === member.id && project.status === '进行中');
   return `
-    <article class="card member-card reveal reveal-d${Math.min(index % 4 + 1, 4)}" data-department="${member.department}">
+    <details id="member-${member.id}" class="card member-card reveal reveal-d${Math.min(index % 4 + 1, 4)}" data-department="${member.department}">
+      <summary class="member-summary">
       <div class="member-left">
         <div class="card-image">
           <img src="${member.avatar}" alt="${member.name}" loading="lazy" />
@@ -76,6 +78,16 @@ function renderMemberCard(member, index = 0) {
       </div>
       <div class="member-right">
         <p class="card-text">${member.intro}</p>
+        <span class="member-toggle"><span class="when-closed">查看负责项目与联系方式</span><span class="when-open">收起详细信息</span><span class="member-toggle-icon" aria-hidden="true">＋</span></span>
+      </div>
+      </summary>
+      <div class="member-expanded">
+        <section class="member-projects" aria-labelledby="member-projects-${member.id}">
+          <h4 id="member-projects-${member.id}">正在负责 <span class="badge">${projects.length}</span></h4>
+          ${projects.length ? `<ul class="member-project-links">${projects.map((project) => `
+            <li><a href="projects.html?id=${project.id}"><span>${project.title}</span><span class="member-project-meta">${project.status} <span aria-hidden="true">↗</span></span></a></li>
+          `).join('')}</ul>` : '<p class="member-empty">暂无正在负责的项目或活动。</p>'}
+        </section>
         ${member.wechat ? `
           <div class="member-contact" role="group" aria-label="联系方式">
             <p class="member-contact-title">联系方式</p>
@@ -86,7 +98,20 @@ function renderMemberCard(member, index = 0) {
           </div>
         ` : ''}
       </div>
-    </article>
+    </details>
+  `;
+}
+
+/** 负责人信息统一取自核心成员数据，保持双向关联。 */
+function renderProjectLeader(project) {
+  const member = MEMBERS_DATA.find((item) => item.id === project.leaderId);
+  if (!member) return '<p class="member-empty">负责人信息待补充。</p>';
+  return `
+    <a class="project-leader-card" href="members.html#member-${member.id}" aria-label="查看负责人 ${member.name} 的详细信息">
+      <img src="${member.avatar}" alt="" class="leader-avatar" loading="lazy" />
+      <span class="leader-info"><span class="leader-label">负责人 · ${member.role}</span><strong>${member.name}</strong></span>
+      <span class="leader-arrow" aria-hidden="true">↗</span>
+    </a>
   `;
 }
 
@@ -98,11 +123,13 @@ function renderProjectCard(project) {
   return `
     <article class="card project-card reveal" data-id="${project.id}" data-status="${project.status}" data-type="${project.type}">
       <div class="project-left">
-        <h3 class="card-title">${project.title}</h3>
+        <h3 class="card-title"><a class="project-title-link" href="projects.html?id=${project.id}">${project.title}</a></h3>
         <span class="badge">${project.status}</span>
       </div>
       <div class="project-right">
         <p class="card-text">${project.summary}</p>
+        <a class="project-detail-link" href="projects.html?id=${project.id}">查看项目详情 <span aria-hidden="true">↗</span></a>
+        ${renderProjectLeader(project)}
       </div>
     </article>
   `;

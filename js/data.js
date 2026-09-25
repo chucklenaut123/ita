@@ -42,7 +42,7 @@ const NEWS_DATA = [
 const MEMBERS_DATA = [
   {
     id: 1,
-    name: 'Chucklenaut',
+    name: 'ChuckleNaut',
     role: '荣誉社长',
     department: '主席团',
     avatar: 'assets/images/荣誉社长头像.jpg',
@@ -64,48 +64,15 @@ const MEMBERS_DATA = [
 const PROJECTS_DATA = [
   {
     id: 1,
-    title: 'AI 辅助物理实验分析',
+    title: '社团官网维护',
     summary:
-      '利用机器学习模型对物理实验数据进行分析与预测，探索 AI 与物理学科的交叉可能。',
-    status: '进行中',
-    type: '项目',
-    cover: SITE_CONFIG.images.projectCover,
-    leader: {
-      name: '王五',
-      avatar: SITE_CONFIG.images.memberAvatar,
-    },
-    detail:
-      '项目成员将收集并整理经典物理实验数据，构建回归与分类模型，尝试用 AI 方法辅助实验结果分析与误差预测。',
-  },
-  {
-    id: 2,
-    title: '社团招新宣讲会',
-    summary:
-      '面向全校同学的协会介绍与经验分享活动，帮助大家了解智创协会的宗旨与项目。',
-    status: '已完结',
-    type: '活动',
-    cover: SITE_CONFIG.images.projectCover,
-    leader: {
-      name: '张三',
-      avatar: SITE_CONFIG.images.memberAvatar,
-    },
-    detail:
-      '活动包含协会介绍、往届项目展示、成员经验分享与现场答疑，吸引了超过百名同学参与。',
-  },
-  {
-    id: 3,
-    title: '生物图像识别入门工作坊',
-    summary:
-      '面向新成员的工作坊，带领大家用 Python 与开源工具完成第一个图像识别小项目。',
+      '我想要有人能够和我们一起更新和维护这个官网。任务包括更新官网新闻和项目介绍等。不需要你自己会编程，但是你可能需要掌握用AI工具编程，我推荐DeepSeek Harness、TraeWork和Codex。如果你有兴趣的话请联系我吧。——ChuckleNaut',
     status: '进行中',
     type: '活动',
-    cover: SITE_CONFIG.images.projectCover,
-    leader: {
-      name: '李四',
-      avatar: SITE_CONFIG.images.memberAvatar,
-    },
+    cover: 'assets/images/官网维护图片.jpg',
+    leaderId: 1,
     detail:
-      '工作坊分为三次课，内容涵盖环境配置、数据集准备、模型训练与结果可视化。',
+      '我想要有人能够和我们一起更新和维护这个官网。任务包括更新官网新闻和项目介绍等。不需要你自己会编程，但是你可能需要掌握用AI工具编程，我推荐DeepSeek Harness、TraeWork和Codex。如果你有兴趣的话请联系我吧。——ChuckleNaut',
   },
 ];
 
