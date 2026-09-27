@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/components.css" />
-    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="stylesheet" href="css/pages.css?v=20260927" />
   </head>
   <body data-page="ylid-ai">
     <div id="navbar"></div>
@@ -40,6 +40,11 @@
             <p id="ylid-release-status" class="ylid-release-status" role="status">
               正在读取最新稳定版…
             </p>
+            <div class="ylid-download-help">
+              <strong>智创协会官方发布 · 请从本页下载</strong>
+              <p>遇到“通常不会下载”？这是浏览器的下载信誉提示，不代表已检测到病毒。核对下载来源后，可按下方指引保留文件并安装。</p>
+              <a href="#ylid-install-guide">查看下载与安装指引 ↓</a>
+            </div>
           </div>
 
           <aside class="ylid-release-card reveal" aria-label="当前稳定版本">
@@ -77,6 +82,36 @@
               <p>客户端会自动检查签名更新，与本页同步获取最新发布版本。</p>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section id="ylid-install-guide" class="ylid-section ylid-getting-started" aria-labelledby="ylid-install-title">
+        <div class="container">
+          <p class="ylid-section-eyebrow">INSTALLATION GUIDE</p>
+          <h2 id="ylid-install-title" class="section-title">遇到下载提示？按这几步安装</h2>
+          <p class="ylid-install-intro">本页下载按钮连接智创协会为 YLIDAI 使用的官方发布源。当前安装包尚未添加 Windows 代码签名，下载量较少时也可能出现信誉提示；该提示本身不是病毒检测结果。请先核对来源，再决定是否继续。</p>
+          <div class="ylid-install-details">
+            <details open>
+              <summary>1 · Edge 提示“通常不会下载”</summary>
+              <ol>
+                <li>确认你从本官网 <strong>intechassociation.org</strong> 点击下载，下载地址的域名为 <strong>ylidai-updates.pages.dev</strong>。</li>
+                <li>打开 Edge 右上角的下载列表，或按 <kbd>Ctrl</kbd> + <kbd>J</kbd>，找到 YLIDAI 安装包。</li>
+                <li>点击文件旁的 <strong>“…” → “保留”</strong>；如果再次出现提示，选择 <strong>“显示更多” → “仍要保留”</strong>（部分版本显示“仍然保留”）。</li>
+                <li>等待下载完成，再点击“打开文件”。文件名末尾的 <strong>(1)</strong> 等编号仅表示重复下载，不影响安装。</li>
+              </ol>
+            </details>
+            <details>
+              <summary>2 · Windows 提示“已保护你的电脑”</summary>
+              <p>如果提示的是 SmartScreen 阻止了“未识别的应用”，且你已核对上述官方来源并信任该文件，可点击 <strong>“更多信息” → “仍要运行”</strong>，再按安装向导完成安装。未添加 Windows 代码签名的安装包可能显示“未知发布者”。</p>
+              <p>如果没有“仍要运行”按钮，可能受到学校或电脑管理员策略限制，请联系管理员协助。</p>
+            </details>
+            <details>
+              <summary>3 · 安装完成后开始使用</summary>
+              <p>打开 YLIDAI，输入管理员或社团发放的访问令牌，验证成功后即可开始对话。后续客户端会验证更新包的 Tauri 签名；此签名用于检查更新来源与完整性，与 Windows 发布者代码签名不同。</p>
+            </details>
+          </div>
+          <p class="ylid-install-note">以上操作仅适用于“通常不会下载”或“未识别的应用”等信誉提示。如果出现明确的病毒、木马或恶意软件告警，请停止安装并联系社团管理员核查。无需关闭杀毒软件或 SmartScreen。</p>
+          <a class="ylid-install-source" href="https://learn.microsoft.com/zh-cn/troubleshoot/microsoft-edge/development/download-failures" target="_blank" rel="noopener noreferrer">微软关于 Edge 下载提示的说明 ↗</a>
         </div>
       </section>
 
