@@ -58,6 +58,15 @@ const MEMBERS_DATA = [
     intro: '第一任副社长，现就读于罗格斯大学',
     wechat: 'xxy202008',
   },
+  {
+    id: 3,
+    name: 'x-x',
+    role: '重要贡献人',
+    department: '贡献者',
+    avatar: 'assets/images/Mac贡献者头像.jpg',
+    intro: '独立游戏创作者，YLIDAI Mac版本主要贡献人',
+    wechat: 'caca233333',
+  },
 ];
 
 // 项目与活动数据
