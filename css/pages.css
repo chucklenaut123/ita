@@ -141,18 +141,6 @@
   font-size: 0.9rem;
 }
 
-/* ---------- about-block 动画支持 ---------- */
-.about-block {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity var(--duration-normal) var(--ease-out), transform var(--duration-normal) var(--ease-out);
-}
-
-.about-block.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* ---------- YLID AI Agent ---------- */
 .ylid-hero {
   position: relative;
@@ -317,4 +305,87 @@
   .ylid-hero-grid, .ylid-feature-grid, .ylid-steps { grid-template-columns: 1fr; }
   .ylid-release-card { max-width: 36rem; }
   .ylid-feature-card { min-height: auto; }
+}
+
+/* ---------- 关于我们：无图文字排版 ---------- */
+.about-container { max-width: 1080px; }
+.about-header { padding: clamp(3.5rem, 8vw, 6rem) 0 0; }
+.about-eyebrow, .about-index {
+  display: block;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+.about-header h1 {
+  margin: 1.25rem 0 1.5rem;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+}
+.about-intro { color: var(--text-secondary); font-size: clamp(1rem, 2vw, 1.125rem); line-height: 1.9; }
+.about-contents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2.5rem;
+  margin-top: 2.5rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.about-contents a { display: inline-flex; align-items: center; gap: 1.25rem; padding: 0.25rem 0; font-size: 0.9rem; }
+.about-contents span { color: var(--accent); }
+.about-page a:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 3px; }
+.about-contents a:hover, .about-text-link:hover { color: var(--accent); }
+.about-row {
+  display: grid;
+  grid-template-columns: 1fr 1.65fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding: clamp(2.5rem, 6vw, 4rem) 0;
+}
+.about-page section { scroll-margin-top: 2rem; }
+.about-section-heading h2 { margin-top: 0.85rem; font-size: clamp(1.4rem, 2.5vw, 1.8rem); line-height: 1.6; }
+.about-copy, .about-principles p { color: var(--text-secondary); line-height: 1.95; }
+.about-copy p + p { margin-top: 1.25rem; }
+.about-purpose {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+.about-purpose h2 { margin: 1rem 0; font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.4; letter-spacing: -0.02em; }
+.about-purpose > p { max-width: 44rem; color: var(--text-secondary); line-height: 1.95; }
+.about-values { display: flex; flex-wrap: wrap; gap: 1rem 0; margin-top: 1.75rem; color: var(--accent); font-size: 0.85rem; }
+.about-values li + li { margin-left: 1.5rem; padding-left: 1.5rem; border-left: 1px solid var(--border); }
+.about-principles article + article { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.about-principles h3 { margin-bottom: 0.5rem; font-size: 1.125rem; font-weight: 600; }
+.about-explore {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.about-explore h2 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+.about-explore p { color: var(--text-secondary); font-size: 0.9rem; }
+.about-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.5rem; flex-shrink: 0; }
+.about-text-link { font-size: 0.9rem; padding: 0.5rem 0; }
+.about-mobile-break { display: none; }
+@media (max-width: 768px) {
+  .about-row { grid-template-columns: 1fr; gap: 1.5rem; }
+  .about-explore { align-items: flex-start; flex-direction: column; }
+  .about-contents { gap: 0.5rem 1.5rem; }
+  .about-contents a { gap: 0.5rem; }
+  .about-desktop-break { display: none; }
+}
+@media (max-width: 420px) {
+  .about-mobile-break { display: initial; }
+  .about-values li + li { margin-left: 1rem; padding-left: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:has(.about-page) { scroll-behavior: auto; }
+  .about-page .btn { transition: none; }
 }
