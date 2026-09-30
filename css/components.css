@@ -766,7 +766,7 @@
 }
 
 .series-body.open {
-  max-height: 600px;
+  max-height: 1200px;
   padding: var(--space-md);
   opacity: 1;
 }
@@ -801,25 +801,6 @@
   display: flex;
   gap: 0.5rem;
   flex-shrink: 0;
-}
-
-/* ---------- 不公开文档卡片 ---------- */
-.private-doc-card .outline-list {
-  margin: var(--space-sm) 0;
-  padding-left: 1.2rem;
-  list-style: disc;
-  color: var(--text-secondary);
-}
-
-.private-doc-card .outline-list li {
-  margin-bottom: 0.25rem;
-}
-
-.private-note {
-  display: inline-block;
-  margin-top: var(--space-xs);
-  font-size: 0.85rem;
-  color: var(--text-muted);
 }
 
 /* ---------- 详情页 ---------- */

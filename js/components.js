@@ -184,7 +184,7 @@ function renderNewsCarousel(news) {
 }
 
 /**
- * 渲染文档系列（公开文档）
+ * 渲染教学资料系列
  * @param {Array} seriesList 系列数组
  */
 function renderDocSeries(seriesList) {
@@ -205,7 +205,7 @@ function renderDocSeries(seriesList) {
               <li class="doc-item">
                 <span class="doc-title">${doc.title}</span>
                 <div class="doc-actions">
-                  <a href="${doc.file}" target="_blank" class="btn btn-sm btn-outline">在线预览</a>
+                  <a href="${doc.file}" target="_blank" rel="noopener" class="btn btn-sm btn-outline">在线预览</a>
                   <a href="${doc.file}" download class="btn btn-sm">下载</a>
                 </div>
               </li>
@@ -215,28 +215,6 @@ function renderDocSeries(seriesList) {
           </ul>
         </div>
       </div>
-    `
-    )
-    .join('');
-}
-
-/**
- * 渲染不公开文档卡片
- * @param {Array} docs 不公开文档数组
- */
-function renderPrivateDocs(docs) {
-  return docs
-    .map(
-      (doc) => `
-      <article class="card private-doc-card">
-        <div class="card-body">
-          <h3 class="card-title">${doc.title}</h3>
-          <ul class="outline-list">
-            ${doc.outline.map((item) => `<li>${item}</li>`).join('')}
-          </ul>
-          <span class="private-note">内部资料，暂不公开</span>
-        </div>
-      </article>
     `
     )
     .join('');

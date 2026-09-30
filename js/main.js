@@ -238,14 +238,9 @@ function initProjectsPage() {
  */
 function initDocsPage() {
   const publicContainer = document.getElementById('public-docs');
-  const privateContainer = document.getElementById('private-docs');
 
   if (publicContainer) {
     publicContainer.innerHTML = renderDocSeries(DOC_SERIES_DATA);
-  }
-
-  if (privateContainer) {
-    privateContainer.innerHTML = renderPrivateDocs(PRIVATE_DOCS_DATA);
   }
 
   document.addEventListener('click', (e) => {

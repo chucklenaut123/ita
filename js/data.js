@@ -85,58 +85,87 @@ const PROJECTS_DATA = [
   },
 ];
 
-// 公开文档系列
+// 教学资料 PDF。新增讲义时，在对应系列添加标题和文件路径。
 const DOC_SERIES_DATA = [
   {
-    id: 'python-basics',
-    title: 'Python 基础系列',
-    summary: '面向零基础同学的 Python 入门教程，包含语法、数据结构与常用库。',
+    id: 'course-guide',
+    title: '学习地图与公共附录',
+    summary: '先了解课程路线，学习过程中可随时查阅术语表。',
     docs: [
       {
-        id: 'py-01',
-        title: 'Python 环境搭建与基础语法',
-        file: 'documents/example-tutorial.md',
-        type: 'markdown',
+        id: 'course-map',
+        title: '学习地图',
+        file: 'assets/教学资料/PDF/00_课程说明与公共附录/学习地图.pdf',
       },
       {
-        id: 'py-02',
-        title: '常用数据结构速查',
-        file: 'documents/example-tutorial.md',
-        type: 'markdown',
+        id: 'c1-terms',
+        title: 'C1 中英文术语速查表',
+        file: 'assets/教学资料/PDF/00_课程说明与公共附录/C1_中英文术语速查表.pdf',
       },
     ],
   },
   {
-    id: 'ml-intro',
-    title: '机器学习入门系列',
-    summary: '介绍机器学习的基本概念、经典算法与实践流程。',
+    id: 'ml-neural-networks',
+    title: '机器学习与神经网络入门',
+    summary: '从 AI 基础和模型训练，逐步学习神经网络、大语言模型与 Transformer。',
     docs: [
       {
-        id: 'ml-01',
-        title: '机器学习概述',
-        file: 'documents/example-tutorial.md',
-        type: 'markdown',
+        id: 'a1',
+        title: 'A1 AI、ML、DL 与伦理',
+        file: 'assets/教学资料/PDF/A_机器学习与神经网络入门/A1_AI_ML_DL与伦理.pdf',
       },
       {
-        id: 'ml-02',
-        title: '线性回归与逻辑回归',
-        file: 'documents/example-tutorial.md',
-        type: 'markdown',
+        id: 'a2',
+        title: 'A2 数学基础、线性回归与梯度下降',
+        file: 'assets/教学资料/PDF/A_机器学习与神经网络入门/A2_数学基础_线性回归与梯度下降.pdf',
+      },
+      {
+        id: 'a3',
+        title: 'A3 模型训练流程与数据集',
+        file: 'assets/教学资料/PDF/A_机器学习与神经网络入门/A3_模型训练流程与数据集.pdf',
+      },
+      {
+        id: 'a4-matrix',
+        title: 'A4 神经网络：从神经元到矩阵运算',
+        file: 'assets/教学资料/PDF/A_机器学习与神经网络入门/A4_神经网络_从神经元到矩阵运算.pdf',
+      },
+      {
+        id: 'a4-activation',
+        title: 'A4 神经网络：激活函数与 SGD',
+        file: 'assets/教学资料/PDF/A_机器学习与神经网络入门/A4_神经网络_激活函数与SGD.pdf',
+      },
+      {
+        id: 'a5',
+        title: 'A5 从下一个词元理解大语言模型',
+        file: 'assets/教学资料/PDF/A_机器学习与神经网络入门/A5_从下一个词元理解大语言模型.pdf',
+      },
+      {
+        id: 'a6',
+        title: 'A6 自注意力如何让文字互相提供线索',
+        file: 'assets/教学资料/PDF/A_机器学习与神经网络入门/A6_自注意力如何让文字互相提供线索.pdf',
+      },
+      {
+        id: 'a7',
+        title: 'A7 从自注意力到 Transformer',
+        file: 'assets/教学资料/PDF/A_机器学习与神经网络入门/A7_从自注意力到Transformer.pdf',
       },
     ],
   },
-];
-
-// 不公开文档（仅展示标题与大纲）
-const PRIVATE_DOCS_DATA = [
   {
-    id: 'internal-01',
-    title: '协会内部培训大纲',
-    outline: ['新成员培训流程', '部门职责说明', '考核标准'],
-  },
-  {
-    id: 'internal-02',
-    title: '项目管理规范',
-    outline: ['立项流程', '进度跟踪', '结项汇报', '资料归档'],
+    id: 'ai-programming',
+    title: 'AI 编程入门',
+    summary: '了解 AI 编程的使用边界、API 基础，以及 Agent 的工作原理与实践。',
+    docs: [
+      {
+        id: 'b1',
+        title: 'B1 AI 编程基础、边界与 API',
+        file: 'assets/教学资料/PDF/B_AI编程入门/B1_AI编程基础_边界与API.pdf',
+      },
+      {
+        id: 'b2',
+        title: 'B2 Agent 原理与 TraeWork 实践',
+        file: 'assets/教学资料/PDF/B_AI编程入门/B2_Agent原理与TraeWork实践.pdf',
+      },
+    ],
   },
 ];
