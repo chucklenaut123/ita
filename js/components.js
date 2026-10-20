@@ -144,7 +144,7 @@ function renderNewsCarousel(news) {
     .map(
       (item, index) => `
       <div class="carousel-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
-        <a href="news-detail.html?id=${item.id}" class="carousel-link">
+        <a href="${item.detailUrl || `news-detail.html?id=${item.id}`}" class="carousel-link">
           <div class="carousel-image">
             <img src="${item.image}" alt="${item.title}" class="${item.imageClass || ''}" />
           </div>

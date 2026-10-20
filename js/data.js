@@ -8,6 +8,7 @@
 const NEWS_DATA = [
   {
     id: 1,
+    detailUrl: 'news-detail.html?id=1&v=20261020-ylidai-announcement',
     title: 'YLIDAI正在进行内部测试',
     summary: '我们开发的AI学习辅助工具“YLIDAI”正在进行内部测试，现在仍可加入我们的测试团队，如果有兴趣请联系项目贡献者-在“核心成员”中找到“Chucklenaut”或“x-x”即可获得贡献者联系方式。',
     content:
