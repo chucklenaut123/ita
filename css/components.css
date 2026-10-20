@@ -297,6 +297,11 @@
   object-fit: cover;
 }
 
+.carousel-image img.news-icon {
+  object-fit: contain;
+  padding: var(--space-lg);
+}
+
 .carousel-content {
   padding: var(--space-lg);
   display: flex;

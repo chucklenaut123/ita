@@ -7,11 +7,11 @@
     <title>YLIDAI | 智创协会</title>
     <meta
       name="description"
-      content="下载 YLIDAI Windows 客户端，体验面向学习与创作的智能助手。"
+      content="YLIDAI 智能学习辅助工具正在进行内部测试，欢迎联系项目贡献者加入测试团队。"
     />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/components.css" />
-    <link rel="stylesheet" href="css/pages.css?v=20260927-2" />
+    <link rel="stylesheet" href="css/pages.css?v=20261020" />
   </head>
   <body data-page="ylid-ai">
     <div id="navbar"></div>
@@ -28,9 +28,7 @@
               一个为学习、探索与创作而生的桌面智能助手。把问题、想法和资料带进对话，让下一步更清晰。
             </p>
             <div class="ylid-actions">
-              <a id="ylid-download" class="btn" aria-disabled="true">
-                下载 Windows 64 位版
-              </a>
+              <span class="ylid-beta-notice" role="status">正在进行内部测试！</span>
               <a
                 class="btn btn-outline"
                 href="https://github.com/chucklenaut123/YALIAI_windows_client"
@@ -38,25 +36,21 @@
                 rel="noopener noreferrer"
               >查看项目仓库</a>
             </div>
-            <p id="ylid-release-status" class="ylid-release-status" role="status">
-              正在读取最新稳定版…
-            </p>
             <div class="ylid-download-help">
-              <strong>智创协会官方发布 · 请从本页下载</strong>
-              <p>遇到“通常不会下载”？这是浏览器的下载信誉提示，不代表已检测到病毒。核对下载来源后，可按下方指引保留文件并安装。</p>
-              <a href="#ylid-install-guide">查看下载与安装指引 ↓</a>
+              <strong>欢迎加入我们的测试团队</strong>
+              <p>如果有兴趣，请在“核心成员”中找到“Chucklenaut”或“x-x”，获取项目贡献者的联系方式。</p>
+              <a href="members.html">查看核心成员 →</a>
             </div>
           </div>
 
-          <aside class="ylid-release-card reveal" aria-label="当前稳定版本">
-            <span class="badge">CURRENT STABLE</span>
-            <p id="ylid-version" class="ylid-version">--</p>
-            <p class="ylid-release-label">最近发布</p>
-            <p id="ylid-release-date" class="ylid-release-date">--</p>
+          <aside class="ylid-release-card reveal" aria-label="内部测试状态">
+            <span class="badge">内部测试</span>
+            <p class="ylid-version">YLIDAI</p>
+            <p class="ylid-release-label">AI 学习辅助工具</p>
             <div class="ylid-card-line"></div>
-            <p class="ylid-release-label">更新说明</p>
-            <p id="ylid-release-notes" class="ylid-release-notes">
-              正在同步版本信息…
+            <p class="ylid-release-label">测试团队招募中</p>
+            <p class="ylid-release-notes">
+              我们开发的AI学习辅助工具“YLIDAI”正在进行内部测试，现在仍可加入我们的测试团队。
             </p>
           </aside>
         </div>
@@ -81,7 +75,7 @@
         </div>
       </section>
 
-      <section id="ylid-install-guide" class="ylid-section ylid-getting-started" aria-labelledby="ylid-install-title">
+      <section id="ylid-install-guide" class="ylid-section ylid-getting-started" aria-labelledby="ylid-install-title" hidden>
         <div class="container">
           <p class="ylid-section-eyebrow">INSTALLATION GUIDE</p>
           <h2 id="ylid-install-title" class="section-title">遇到下载提示？按这几步安装</h2>
@@ -111,7 +105,7 @@
         </div>
       </section>
 
-      <section class="ylid-section ylid-getting-started">
+      <section class="ylid-section ylid-getting-started" hidden>
         <div class="container">
           <p class="ylid-section-eyebrow">GET STARTED</p>
           <h2 class="section-title">三步开始使用</h2>
@@ -141,7 +135,6 @@
     <script src="js/config.js?v=20260918"></script>
     <script src="js/data.js"></script>
     <script src="js/components.js"></script>
-    <script type="module" src="js/ylid-updates.mjs?v=20260918"></script>
     <script src="js/main.js?v=20260918"></script>
   </body>
 </html>

@@ -146,7 +146,7 @@ function renderNewsCarousel(news) {
       <div class="carousel-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
         <a href="news-detail.html?id=${item.id}" class="carousel-link">
           <div class="carousel-image">
-            <img src="${item.image}" alt="${item.title}" />
+            <img src="${item.image}" alt="${item.title}" class="${item.imageClass || ''}" />
           </div>
           <div class="carousel-content">
             <span class="carousel-tag">${item.tag}</span>
@@ -174,9 +174,9 @@ function renderNewsCarousel(news) {
         <h2 class="section-title">最新动态</h2>
         <div class="carousel">
           <div class="carousel-track">${slides}</div>
-          <button class="carousel-btn carousel-prev" aria-label="上一条">&#10094;</button>
+          ${news.length > 1 ? `<button class="carousel-btn carousel-prev" aria-label="上一条">&#10094;</button>
           <button class="carousel-btn carousel-next" aria-label="下一条">&#10095;</button>
-          <div class="carousel-dots">${dots}</div>
+          <div class="carousel-dots">${dots}</div>` : ''}
         </div>
       </div>
     </section>

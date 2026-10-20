@@ -116,7 +116,7 @@ function initCarousel() {
   const dots = document.querySelectorAll('.carousel-dot');
   const prevBtn = document.querySelector('.carousel-prev');
   const nextBtn = document.querySelector('.carousel-next');
-  if (!track) return;
+  if (!track || dots.length <= 1) return;
 
   const total = dots.length;
   let current = 0;
@@ -274,7 +274,7 @@ function initNewsDetailPage() {
   container.innerHTML = `
     <article class="detail-card">
       <div class="detail-header">
-        <img src="${news.image}" alt="${news.title}" />
+        <img src="${news.image}" alt="${news.title}" class="${news.imageClass || ''}" />
         <div>
           <span class="badge">${news.tag}</span>
           <span class="news-date">${news.date}</span>

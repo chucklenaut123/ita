@@ -18,9 +18,7 @@ const SITE_CONFIG = {
   images: {
     hero: 'assets/images/WIP.jpg',
     news: [
-      'assets/images/WIP.jpg',
-      'assets/images/WIP.jpg',
-      'assets/images/WIP.jpg',
+      'assets/images/ylidai-icon.png',
     ],
     memberAvatar: 'assets/images/WIP.jpg',
     projectCover: 'assets/images/WIP.jpg',
