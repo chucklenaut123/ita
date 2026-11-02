@@ -32,7 +32,7 @@ test('native disclosure includes contact and only active projects for its member
   assert.match(html, /<details id="member-1"/);
   assert.match(html, /<summary class="member-summary">/);
   assert.match(html, /Shabby2237/);
-  assert.match(run('renderMemberCard(MEMBERS_DATA[1])'), /暂无正在负责/);
+  assert.doesNotMatch(run('renderMemberCard(MEMBERS_DATA[1])'), /href="projects.html/);
   run('PROJECTS_DATA[0].status = "已完结"');
   assert.doesNotMatch(run('renderMemberCard(MEMBERS_DATA[0])'), /href="projects.html/);
   assert.match(run('renderProjectLeader({ leaderId: 999 })'), /负责人信息待补充/);

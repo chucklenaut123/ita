@@ -10,7 +10,6 @@ const NEWS_DATA = [
     id: 1,
     detailUrl: 'news-detail.html?id=1&v=20261020-ylidai-announcement',
     title: 'YLIDAI正在进行内部测试',
-    summary: '我们开发的AI学习辅助工具“YLIDAI”正在进行内部测试，现在仍可加入我们的测试团队，如果有兴趣请联系项目贡献者-在“核心成员”中找到“Chucklenaut”或“x-x”即可获得贡献者联系方式。',
     content:
       '我们开发的AI学习辅助工具“YLIDAI”正在进行内部测试，现在仍可加入我们的测试团队，如果有兴趣请联系项目贡献者-在<a href="members.html">“核心成员”</a>中找到“Chucklenaut”或“x-x”即可获得贡献者联系方式。',
     tag: '内部测试',
@@ -56,14 +55,12 @@ const PROJECTS_DATA = [
   {
     id: 1,
     title: '社团官网维护',
-    summary:
-      '我想要有人能够和我们一起更新和维护这个官网。任务包括更新官网新闻和项目介绍等。不需要你自己会编程，但是你可能需要掌握用AI工具编程，我推荐DeepSeek Harness、TraeWork和Codex。如果你有兴趣的话请联系我吧。——ChuckleNaut',
     status: '进行中',
     type: '活动',
     cover: 'assets/images/官网维护图片.jpg',
     leaderId: 1,
     detail:
-      '我想要有人能够和我们一起更新和维护这个官网。任务包括更新官网新闻和项目介绍等。不需要你自己会编程，但是你可能需要掌握用AI工具编程，我推荐DeepSeek Harness、TraeWork和Codex。如果你有兴趣的话请联系我吧。——ChuckleNaut',
+      '我想要有人能够和我们一起更新和维护这个官网。任务包括更新官网新闻和项目介绍等。不需要你自己会编程，但是你可能需要掌握用AI工具编程，我推荐DeepSeek Harness、TraeWork和Codex。如果你有兴趣的话请联系我吧。',
   },
 ];
 

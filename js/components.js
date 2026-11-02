@@ -85,8 +85,8 @@ function renderMemberCard(member, index = 0) {
         <section class="member-projects" aria-labelledby="member-projects-${member.id}">
           <h4 id="member-projects-${member.id}">正在负责 <span class="badge">${projects.length}</span></h4>
           ${projects.length ? `<ul class="member-project-links">${projects.map((project) => `
-            <li><a href="projects.html?id=${project.id}"><span>${project.title}</span><span class="member-project-meta">${project.status} <span aria-hidden="true">↗</span></span></a></li>
-          `).join('')}</ul>` : '<p class="member-empty">暂无正在负责的项目或活动。</p>'}
+            <li><a href="projects.html?id=${project.id}"><span>${project.title}</span><span class="member-project-meta" aria-hidden="true">↗</span></a></li>
+          `).join('')}</ul>` : ''}
         </section>
         ${member.wechat ? `
           <div class="member-contact" role="group" aria-label="联系方式">
@@ -127,7 +127,6 @@ function renderProjectCard(project) {
         <span class="badge">${project.status}</span>
       </div>
       <div class="project-right">
-        <p class="card-text">${project.summary}</p>
         <a class="project-detail-link" href="projects.html?id=${project.id}">查看项目详情 <span aria-hidden="true">↗</span></a>
         ${renderProjectLeader(project)}
       </div>
@@ -151,7 +150,6 @@ function renderNewsCarousel(news) {
           <div class="carousel-content">
             <span class="carousel-tag">${item.tag}</span>
             <h2 class="carousel-title">${item.title}</h2>
-            <p class="carousel-summary">${item.summary}</p>
             <span class="carousel-date">${item.date}</span>
           </div>
         </a>
